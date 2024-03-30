@@ -1,0 +1,17 @@
+/* App.css */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; 
+  background-color: #7c4dff; /* Purple background for the entire app */
+}
+
+/* This will be your content container where the Router renders the component */
+/* .content {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+} */
+
