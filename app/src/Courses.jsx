@@ -47,23 +47,29 @@ function Courses({ updateCourses, handleSubmit: submitData }){ // Renamed prop f
 
 
   return (
-    <div className="educonnect">
-      <h1>Completed Courses</h1>
-      <div>
-        {selectedCourses.map((course, index) => (
-          <div key={index} className="course-tag">
-            {course}
-            <button onClick={() => removeCourse(index)} className="remove-course-button">x</button>
-          </div>
-        ))}
-      </div>
-      <input type="text" value={customCourse} onChange={handleCustomCourseChange} placeholder="Add a new course" />
-      <button onClick={addCustomCourse}>Add Course</button>
-      <button onClick={goBack}>Go Back</button>
-      <button onClick={handleGetRoadMap} className="roadmap-button">Get RoadMap</button>
-      <button onClick={handlePotentialCareerPaths} className="career-paths-button">Potential Career Paths</button>
+    <>
+        <header className="header">
+            <div className="logo">GoalForge</div>
+        </header>
+        <div className="educonnect">
+            <h1>Completed Courses</h1>
+            <div>
+                {selectedCourses.map((course, index) => (
+                <div key={index} className="course-tag">
+                    {course}
+                    <button onClick={() => removeCourse(index)} className="remove-course-button">x</button>
+                </div>
+                ))}
+            </div>
+            <input type="text" value={customCourse} onChange={handleCustomCourseChange} placeholder="Add a new course" />
+            <button onClick={addCustomCourse}>Add Course</button>
+            <button onClick={goBack}>Go Back</button>
+            <button onClick={handleGetRoadMap} className="roadmap-button">Get RoadMap</button>
+            <button onClick={handlePotentialCareerPaths} className="career-paths-button">Potential Career Paths</button>
 
-    </div>
+        </div>
+    </>
+    
   );
 }
 

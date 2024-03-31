@@ -1,3 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
 .homepage-container {
     display: flex;
     flex-direction: column;
@@ -10,6 +24,7 @@
     padding: 0;
     box-sizing: border-box; /* Make sure padding doesn't affect the size */
   }
+
   
   .homepage-header h1 {
     color: white;

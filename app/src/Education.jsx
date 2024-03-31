@@ -11,20 +11,27 @@ function Education({ updateEducationLevel }) {
   };
 
   return (
-    <div className="homepage-container">
+      <>
+         <header class="top-nav">
+          <h1>GoalForge</h1>
+        </header>
+        <div className="homepage-container">
       
-      <div className="homepage-content">
-        <h2>Select your level of education</h2>
-        <div className="button-container">
-          <button onClick={() => handleSelect('High School Student')}>
-            High School Student
-          </button>
-          <button onClick={() => handleSelect('College Student')}>
-            College Student
-          </button>
+          <div className="homepage-content">
+            <h2>Select your level of education</h2>
+            <div className="button-container">
+              <button onClick={() => handleSelect('High School Student')}>
+                High School Student
+              </button>
+              <button onClick={() => handleSelect('College Student')}>
+                College Student
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </>
+    
+    
   );
 };
 

@@ -12,17 +12,23 @@ function GoalScreen({ setGoal }) {
   };
 
   return (
-    <div className="goal-screen-container">
-        <h1 className="goal-screen-heading">What's your goal?</h1>
-        <input
-            className="goal-screen-input"
-            type="text"
-            value={localGoal}
-            onChange={(e) => setLocalGoal(e.target.value)}
-            placeholder="Enter your goal"
-        />
-        <button className="goal-screen-button" onClick={handleSubmitGoal}>Next</button>
-    </div>
+    <>
+        <header className="header">
+            <div className="logo">GoalForge</div>
+        </header>
+        <div className="goal-screen-container">
+            <h1 className="goal-screen-heading">What's your goal?</h1>
+            <input
+                className="goal-screen-input"
+                type="text"
+                value={localGoal}
+                onChange={(e) => setLocalGoal(e.target.value)}
+                placeholder="Enter your goal"
+            />
+            <button className="goal-screen-button" onClick={handleSubmitGoal}>Next</button>
+        </div>
+    </>
+    
 
   );
 }

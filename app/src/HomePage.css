@@ -1,0 +1,141 @@
+.first-screen {
+    font-family: 'Arial', sans-serif;
+    width: 100vw;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .navigation {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .login-btn, .signup-btn {
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-btn {
+    background-color: #ffffff;
+    color: #333;
+  }
+  
+  .signup-btn {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+  
+  .login-btn:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .signup-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .main-content {
+    text-align: center;
+    background-color: #f2f2f2;
+    margin: 30px 0;
+  }
+  
+  .main-content h1 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .path-options {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .option {
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .option img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    margin-bottom: 8px;
+  }
+  
+  .option span {
+    display: block;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .option:hover {
+    transform: translateY(-5px);
+  }
+  
+  .how-it-works-section {
+    /* ...existing styles... */
+    text-align: center;
+    padding: 20px;
+    background-color: #6c63ff; /* Example background color */
+    color: #ffffff; /* Example text color */
+  }
+  
+  .how-it-works-image {
+    max-width: 100%;
+    height: 200px;
+    margin: 20px auto; /* Centers the image and adds space above and below */
+  }
+  
+  .steps-row {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: left;
+  }
+  
+  .step {
+    flex-basis: 30%; /* Give each step a base width */
+    margin: 0 10px; /* Add horizontal spacing between steps */
+  }
+  
+  .start-now-btn {
+    margin-top: 20px; /* Add space above the button */
+    padding: 10px 20px;
+    background-color: #ff4081; /* Example button background color */
+    color: #ffffff; /* Example button text color */
+    border: none;
+    border-radius: 20px; /* Rounded edges */
+    cursor: pointer;
+    font-size: 1rem;
+    display: block; /* Make the button a block element */
+    margin: 20px auto; /* Center the button */
+  }
+  
+  @media (max-width: 768px) {
+    .steps-row {
+      flex-direction: column; /* Stack steps on top of each other on small screens */
+    }
+  
+    .step {
+      flex-basis: auto; /* Allow steps to determine their own size */
+      margin: 10px 0; /* Add vertical spacing between stacked steps */
+    }
+  }
+  
