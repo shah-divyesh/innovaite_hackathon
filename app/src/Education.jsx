@@ -2,11 +2,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Education.css'; // Importing the CSS file
 
-function Education() {
+function Education({ updateEducationLevel }) {
   let navigate = useNavigate(); // Hook for navigation
 
   const handleSelect = (level) => {
-    console.log(`User selected: ${level}`);
+    updateEducationLevel(level);
     navigate('/skills'); // This will navigate to the Skills component
   };
 

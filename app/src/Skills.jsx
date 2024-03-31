@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Skills.css'; // Make sure to create a corresponding CSS file
 
-function Skills(){
+function Skills({ updateSkills }){
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [customSkill, setCustomSkill] = useState('');
   const navigate = useNavigate();
@@ -25,6 +25,15 @@ function Skills(){
   const removeSkill = (indexToRemove) => {
     setSelectedSkills(selectedSkills.filter((_, index) => index !== indexToRemove));
   };
+
+
+  const goToCourses = () => {
+    navigate('/courses'); // Navigate to the Courses screen
+  };
+
+  useEffect(() => {
+    updateSkills(selectedSkills); // Update skills in App's state whenever selectedSkills changes
+  }, [selectedSkills]);
 
   return (
     <div className="educonnect">
@@ -56,6 +65,7 @@ function Skills(){
         </button>
       </div>
       <button onClick={goBackToEducation} className="back-button">Back to Education</button>
+      <button onClick={goToCourses} className="next-button">Next to Courses</button>
     </div>
     
   );
