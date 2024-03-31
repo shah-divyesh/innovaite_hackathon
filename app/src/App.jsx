@@ -30,6 +30,13 @@ function App() {
     setUserData({...userData, courses: courses});
   };
 
+  function processApiResponse(responseText) {
+    // Split the text based on the pattern: "number. "
+    // The positive lookahead (?=) ensures we split at the start of each number followed by a dot and a space without removing those characters.
+    const stepsArray = responseText.split(/(?=\d+\. )/g).filter(Boolean);
+    return stepsArray;
+  }
+
   const careerQuestion = "What are my potential career roles?";
 
   const roadMapPrompt = "Give me a roadmap to reach goal based on my skills and expereince in steps as an array only";
@@ -48,7 +55,9 @@ function App() {
 
     try {
       const res = await axios.post("http://localhost:8080/chat", { prompt: fullPrompt });
-      setResponse(res.data); // Assuming the response has an 'answer' field
+      const processedResponse = processApiResponse(res.data);
+      setResponse(processedResponse);
+      // Assuming the response has an 'answer' field
     } catch (err) {
       console.error(err);
     }
