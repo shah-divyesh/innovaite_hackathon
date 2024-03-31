@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Education from './Education';
 import Skills from './Skills';
 import './App.css';
+import ProfResults from './Profession-results';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Education />} />
             <Route path="/skills" element={<Skills />} />
+            <Route path="/professions" element={<ProfResults />} />
             {/* ... other routes */}
           </Routes>
         </div>

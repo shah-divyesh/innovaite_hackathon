@@ -11,6 +11,11 @@ function Skills(){
     navigate(-1); // Go back to the previous page
   };
 
+  const goToProfessions = () => {
+    const dummyJobs = ["cook", "teacher"];
+    navigate('/professions', { state: { jobs: dummyJobs } }); // Go to professions page with dummy jobs data  };
+  }
+
   const handleCustomSkillChange = (e) => {
     setCustomSkill(e.target.value);
   };
@@ -56,6 +61,9 @@ function Skills(){
         </button>
       </div>
       <button onClick={goBackToEducation} className="back-button">Back to Education</button>
+
+      <button onClick={goToProfessions} className="to-prof-button">See Results</button>
+
     </div>
     
   );
