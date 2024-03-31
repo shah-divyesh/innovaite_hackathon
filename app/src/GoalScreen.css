@@ -1,0 +1,41 @@
+.goal-screen-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #7c4dff;
+  }
+  
+  .goal-screen-heading {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .goal-screen-input {
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .goal-screen-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #5e35b1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .goal-screen-button:hover {
+    background-color: #5e35b1;
+  }
+  

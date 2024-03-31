@@ -1,44 +1,70 @@
 /* ResultScreen.css aligning with Education.css conventions */
-
+ 
 .result-screen-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    background-color: #7c4dff; /* Matching the purple background */
-    color: white; /* Text color */
-    margin: 0;
-    padding: 20px; /* Adjusted padding for internal spacing */
-    box-sizing: border-box;
-  }
-  
-  .result-screen-header {
-    font-size: 2.5rem; /* Adjusting font size for header */
-    text-align: center;
-    margin: 0;
-    padding-bottom: 20px; /* Space between header and content */
-  }
-  
-  .result-screen-content {
-    font-size: 1.25rem; /* Adjusting font size for content */
-    text-align: center;
-    margin: 0 auto; /* Centering content horizontally */
-    max-width: 800px; /* Max width to wrap the text nicely */
-  }
-  
-  /* Reusing button styles from Education.css */
-  .button-container button {
-    background-color: black;
-    color: white;
-    padding: 1rem 2rem;
-    margin: 1rem 0; /* Space between buttons */
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button-container button:hover {
-    background-color: #333; /* Darker on hover */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  background-color: #7c4dff; /* Matching the purple background */
+  color: white; /* Text color */
+  margin: 0;
+  padding: 20px; /* Adjusted padding for internal spacing */
+  box-sizing: border-box;
+}
+ 
+.result-screen-header {
+  font-size: 2.5rem; /* Adjusting font size for header */
+  text-align: center;
+  margin: 0;
+  padding-bottom: 20px; /* Space between header and content */
+}
+ 
+.result-screen-content {
+  font-size: 1.25rem; /* Adjusting font size for content */
+  text-align: center;
+  margin: 0 auto; /* Centering content horizontally */
+  max-width: 800px; /* Max width to wrap the text nicely */
+}
+ 
+/* Reusing button styles from Education.css */
+.button-container button {
+  background-color: black;
+  color: white;
+  padding: 1rem 2rem;
+  margin: 1rem 0; /* Space between buttons */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+ 
+.button-container button:hover {
+  background-color: #333; /* Darker on hover */
+}
+.result-screen-content {
+  list-style-type: none;
+  padding: 0;
+}
+ 
+.result-screen-content li {
+  margin-bottom: 10px; /* Adjust as needed */
+  background-color: black; /* Default background color */
+}
+ 
+/* Alternate background colors for even numbered items */
+.result-screen-content li:nth-child(even) {
+  background-color: black; /* Adjust as needed */
+}
+ 
+.top-nav {
+  background-color: #333; /* Background color of the navigation bar */
+  color: white; /* Text color */
+  padding: 20px; /* Adjust as needed */
+  text-align: left;
+  width: 100%;
+}
+ 
+.top-nav h1 {
+  margin: 0; /* Resetting default margin for h1 */
+  font-size: 24px; /* Adjust font size as needed */
+}

@@ -11,11 +11,19 @@ function Courses({ updateCourses, handleSubmit: submitData }){ // Renamed prop f
     navigate(-1); // Go back to the previous page
   };
 
-  
-
   const handleFormSubmit = async () => {
     await submitData(); // Now clearly calling the prop function
     navigate('/results'); // Navigate after submission completes
+  };
+
+  const handleGetRoadMap = async () => {
+    await submitData('roadmap'); // Pass 'roadmap' as the type
+    navigate('/goal');
+  };
+  
+  const handlePotentialCareerPaths = async () => {
+    await submitData('careers'); // Pass 'careers' as the type
+    navigate('/results');
   };
 
   const handleCustomCourseChange = (e) => {
@@ -52,7 +60,9 @@ function Courses({ updateCourses, handleSubmit: submitData }){ // Renamed prop f
       <input type="text" value={customCourse} onChange={handleCustomCourseChange} placeholder="Add a new course" />
       <button onClick={addCustomCourse}>Add Course</button>
       <button onClick={goBack}>Go Back</button>
-      <button onClick={handleFormSubmit} className="submit-courses-button">Submit</button>
+      <button onClick={handleGetRoadMap} className="roadmap-button">Get RoadMap</button>
+      <button onClick={handlePotentialCareerPaths} className="career-paths-button">Potential Career Paths</button>
+
     </div>
   );
 }

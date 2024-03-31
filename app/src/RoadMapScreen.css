@@ -1,0 +1,64 @@
+/* RoadMapScreen.css */
+.react-flow__renderer {
+  background-color: #f0f4f8;
+}
+
+.react-flow__node-input {
+  border-radius: 10px;
+  background-color: #5a9;
+}
+
+.react-flow__node-default {
+  border-radius: 10px;
+  background-color: #58a;
+  color: #fff;
+}
+
+.react-flow__node {
+  border: 2px solid #000;
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.react-flow__edge-path {
+  stroke: #333;
+  stroke-width: 2px;
+}
+
+/* Style for the header */
+.header {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+}
+
+.header h1, .header h2 {
+  margin: 0;
+  padding: 5px;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+/* Customizing the Controls */
+.react-flow__controls {
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Styling the background */
+.react-flow__background {
+  fill: #f0f4f8;
+}
+
+/* Overall container styling */
+#roadmap-container {
+  position: relative;
+  height: 700px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 20px;
+  overflow: hidden;
+}
