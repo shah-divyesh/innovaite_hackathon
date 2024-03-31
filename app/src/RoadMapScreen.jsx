@@ -91,8 +91,6 @@
 //   );
 // }
 
-
-
 // import React, { useState, useEffect, useCallback } from "react";
 // import ReactFlow, {
 //   Controls,
@@ -178,10 +176,9 @@
 
 // export default RoadMapScreen;
 
-
 import { useState, useCallback, useEffect } from "react";
 import "reactflow/dist/style.css";
-import _ from "lodash";
+// import _ from "lodash";
 
 import ReactFlow, {
   Controls,
@@ -189,7 +186,7 @@ import ReactFlow, {
   applyNodeChanges,
   applyEdgeChanges,
 } from "reactflow";
-
+import _ from "lodash";
 
 var initialValueNodes = [
   {
@@ -243,17 +240,65 @@ const initialEdges = [
   { id: "6-7", source: "6", target: "7", type: "default" },
   { id: "7-8", source: "7", target: "8", type: "default" },
 ];
-const RoadMapScreen = () =>{
-  const [prompt, setPrompt] = useState("");
-  const [response, setResponse] = useState("");
-  const [initialNodes, setInitialNodes] = useState(initialValueNodes);
-  const [nodes, setNodes] = useState(initialNodes);
-  const [edges, setEdges] = useState(initialEdges);
- 
+const RoadMapScreen = (response) => {
+  // const [response, setResponse] = useState("");
+  // const [initialNodes, setInitialNodes] = useState(initialValueNodes);
+  const [nodes, setNodes] = useState([]);
+  const [edges, setEdges] = useState([]);
+
+  // useEffect(() => {
+  //   setNodes(initialNodes);
+  // }, [initialNodes]);
+
+  const generateNodesAndEdges = (dataResponse) => {
+    const newNodes = [];
+    const newEdges = [];
+    let y = 150;
+    let x = 50;
+    let xOffset = 450; // Horizontal space between nodes
+    let yOffset = 300; // Vertical space between nodes for new rows
+    const mappedData = _.compact(
+      _.flatMap(dataResponse.split("."), (e) => {
+        return !e.includes("\n") && e.trim();
+      })
+    )?.slice(0, 8);
+    mappedData.forEach((step, index) => {
+      const nodeId = `${index + 1}`;
+      newNodes.push({
+        id: nodeId,
+        data: { label: step },
+        position: { x, y },
+        type: index === 0 ? "input" : "default",
+      });
+      if (index > 0) {
+        newEdges.push({
+          id: `${index}-${index + 1}`,
+          source: `${index}`,
+          target: nodeId,
+          type: "default",
+        });
+      }
+      x += xOffset;
+      if ((index + 1) % 3 === 0) {
+        y += yOffset;
+        x = 50;
+      }
+    });
+    setNodes(newNodes);
+    setEdges(newEdges);
+    return { newNodes, newEdges };
+  };
+  // useEffect(() => {
+  //   setNodes(initialNodes);
+  // }, [initialNodes]);
   useEffect(() => {
-    setNodes(initialNodes);
-  }, [initialNodes]);
- 
+    if (response && response != "" && response.response.length > 0) {
+      const { newNodes, newEdges } = generateNodesAndEdges(response.response);
+      setNodes(newNodes);
+      setEdges(newEdges);
+    }
+  }, [response]);
+
   const onNodesChange = useCallback(
     (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
     []
@@ -262,47 +307,10 @@ const RoadMapScreen = () =>{
     (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
     []
   );
- 
+
   console.log(nodes);
   return (
-    <div style={{ height: 700, }} >
-      {/* <div style={{ position: "absolute", top: 10, left: 10 }}>
-        <h1>Jennifer Roadmap</h1>
-        <h2>Goal: Be a billionaire by the age 30</h2>
-      </div>
- 
-      <div className="w-[720px] mx-auto py-24">
-        <div className="w-full justify-center items-center px-8">
-          <form className="w-full text-center" onSubmit={handleSubmit}>
-            <div className="md-6">
-              <label
-                className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4"
-                htmlFor="inline-full-name"
-              >
-                Just say/ask something:
-              </label>
-            </div>
-            <div className="py-4">
-              <input
-                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:shadow-outline"
-                type="text"
-                value={prompt}
-                onChange={(e) => setPrompt(e.target.value)}
-              />
-            </div>
- 
-            <div className="">
-              <button
-                className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                type="submit"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
-      </div> */}
- 
+    <div style={{ height: 1500, width: 1500 }}>
       <ReactFlow
         nodes={nodes}
         onNodesChange={onNodesChange}
@@ -314,6 +322,6 @@ const RoadMapScreen = () =>{
       </ReactFlow>
     </div>
   );
-}
+};
 
 export default RoadMapScreen;

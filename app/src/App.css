@@ -2,7 +2,7 @@
 .app {
   display: flex;
   flex-direction: column;
-  height: 100vh; 
+  height: 100vh;
   background-color: #7c4dff; /* Purple background for the entire app */
 }
 
@@ -14,4 +14,3 @@
   justify-content: center;
   align-items: center; 
 } */
-
