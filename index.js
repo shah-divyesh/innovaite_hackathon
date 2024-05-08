@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 
 const OpenAI = require("openai");
 
+// to be ignored
+var openai;
 // const openai = new OpenAI({
 //   apiKey: "your_key", // This is the default and can be omitted
 // });
